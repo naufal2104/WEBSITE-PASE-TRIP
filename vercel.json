@@ -33,6 +33,7 @@
         "APP_ROUTES_CACHE": "/tmp/routes.php",
         "VIEW_COMPILED_PATH": "/tmp",
         "CACHE_STORE": "array",
-        "SESSION_DRIVER": "array"
+        "SESSION_DRIVER": "array",
+        "LOG_CHANNEL": "stderr"
     }
 }
