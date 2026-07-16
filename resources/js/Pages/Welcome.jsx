@@ -264,7 +264,7 @@ export default function Welcome({ auth }) {
                     <div className="bg-white rounded-b-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2.5 transition-all duration-400 border border-slate-100 group">
                         <div className="relative w-full overflow-hidden">
                             <img
-                                src="/image/destinasi/sabang_vip.jpeg"
+                                src="/image/destinasi/sabang_vip.png"
                                 alt="Trip VIP To Sabang"
                                 className="w-full h-auto object-contain transition-transform duration-500"
                             />

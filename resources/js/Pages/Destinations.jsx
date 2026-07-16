@@ -28,11 +28,11 @@ export default function Destinations({ auth }) {
             id: 'kilometer0',
             title: 'Trip VIP To Sabang',
             location: 'Sabang, Pulau Weh, Indonesia',
-            image: '/image/destinasi/sabang_vip.jpeg',
+            image: '/image/destinasi/sabang_vip.png',
             rating: '4.9',
             price: 'Rp 1.500.000',
             hasPackage: true,
-            promoImage: '/image/destinasi/sabang_vip.jpeg',
+            promoImage: '/image/destinasi/sabang_vip.png',
             waMessage: 'Halo saya mau bertanya soal Trip VIP To Sabang dengan harga Rp 1.500.000'
         },
         {
