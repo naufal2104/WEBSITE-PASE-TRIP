@@ -4,8 +4,7 @@ import { Head, Link } from '@inertiajs/react';
 export default function Destinations({ auth }) {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
-    const [searchQuery, setSearchQuery] = useState('');
+    const [activeNav, setActiveNav] = useState('destinations');
     
     // State to hold the selected destination for detail view
     const [selectedDest, setSelectedDest] = useState(null);
@@ -95,28 +94,13 @@ export default function Destinations({ auth }) {
                     {/* Desktop Menu */}
                     <nav className="hidden md:flex items-center gap-8">
                         <Link href="/" className="text-white/80 hover:text-white font-medium text-sm transition-all duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#00a896] hover:after:w-full after:transition-all after:duration-300">Beranda</Link>
-                        <Link href="/destinations" className="text-[#00a896] font-medium text-sm transition-all duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#00a896] after:transition-all after:duration-300">Destinasi</Link>
+                        <Link href="/destinations" onClick={() => setActiveNav('destinations')} className={`${activeNav === 'destinations' ? 'text-[#00a896]' : 'text-white/80 hover:text-white'} font-medium text-sm transition-all duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 ${activeNav === 'destinations' ? 'after:w-full' : 'after:w-0 hover:after:w-full'} after:h-[2px] after:bg-[#00a896] after:transition-all after:duration-300`}>Destinasi</Link>
                         <Link href="/about" className="text-white/80 hover:text-white font-medium text-sm transition-all duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#00a896] hover:after:w-full after:transition-all after:duration-300">Tentang Kami</Link>
-                        <a href="#contact" className="text-white/80 hover:text-white font-medium text-sm transition-all duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#00a896] hover:after:w-full after:transition-all after:duration-300">Hubungi</a>
-
-                        <button
-                            onClick={() => setIsSearchOpen(true)}
-                            className="bg-[#00a896] text-white w-10 h-10 rounded-lg flex items-center justify-center hover:bg-transparent hover:text-[#00a896] border border-[#00a896] shadow-[0_4px_14px_rgba(0,168,150,0.3)] hover:shadow-none hover:-translate-y-0.5 transition-all duration-300"
-                            aria-label="Cari Trip"
-                        >
-                            <i className="bi bi-search text-base"></i>
-                        </button>
+                        <a href="#contact" onClick={() => setActiveNav('contact')} className={`${activeNav === 'contact' ? 'text-white' : 'text-white/80'} hover:text-white font-medium text-sm transition-all duration-300 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 ${activeNav === 'contact' ? 'after:w-full' : 'after:w-0 hover:after:w-full'} after:h-[2px] after:bg-[#00a896] after:transition-all after:duration-300`}>Hubungi</a>
                     </nav>
 
                     {/* Mobile Menu Actions */}
                     <div className="flex items-center gap-4 md:hidden">
-                        <button
-                            onClick={() => setIsSearchOpen(true)}
-                            className="text-white hover:text-[#00a896] text-2xl transition-colors focus:outline-none"
-                            aria-label="Cari Trip"
-                        >
-                            <i className="bi bi-search"></i>
-                        </button>
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             className="text-white text-3xl focus:outline-none"
@@ -142,8 +126,8 @@ export default function Destinations({ auth }) {
                     </Link>
                     <Link
                         href="/destinations"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-[#00a896] font-medium text-lg transition-colors"
+                        onClick={() => { setMobileMenuOpen(false); setActiveNav('destinations'); }}
+                        className={`${activeNav === 'destinations' ? 'text-[#00a896]' : 'text-white/80 hover:text-white'} font-medium text-lg transition-colors`}
                     >
                         Destinasi
                     </Link>
@@ -156,21 +140,11 @@ export default function Destinations({ auth }) {
                     </Link>
                     <a
                         href="#contact"
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-white/80 hover:text-white font-medium text-lg transition-colors"
+                        onClick={() => { setMobileMenuOpen(false); setActiveNav('contact'); }}
+                        className={`${activeNav === 'contact' ? 'text-[#00a896]' : 'text-white/80'} hover:text-white font-medium text-lg transition-colors`}
                     >
                         Hubungi
                     </a>
-
-                    <button
-                        onClick={() => {
-                            setMobileMenuOpen(false);
-                            setIsSearchOpen(true);
-                        }}
-                        className="bg-[#00a896] text-white px-8 py-3 rounded-lg font-semibold text-base shadow-[0_4px_14px_rgba(0,168,150,0.3)] flex items-center gap-2"
-                    >
-                        <i className="bi bi-search"></i> Cari Trip
-                    </button>
                 </div>
             </header>
 
@@ -214,31 +188,6 @@ export default function Destinations({ auth }) {
                             </div>
                         </div>
 
-                        {/* Category Tabs & Filters */}
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12 border-b border-slate-200 pb-5">
-                            <div className="flex flex-wrap gap-2.5">
-                                <button className="bg-[#1e293b] text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-all">
-                                    Popular destination
-                                </button>
-                                <button className="bg-slate-200/60 hover:bg-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full transition-all">
-                                    Islands
-                                </button>
-                                <button className="bg-slate-200/60 hover:bg-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full transition-all">
-                                    History
-                                </button>
-                                <button className="bg-slate-200/60 hover:bg-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full transition-all">
-                                    Nature
-                                </button>
-                                <button className="bg-slate-200/60 hover:bg-slate-200 text-slate-700 text-xs font-semibold px-5 py-2.5 rounded-full transition-all">
-                                    Beach
-                                </button>
-                            </div>
-
-                            <button className="flex items-center gap-2 border border-slate-300 hover:bg-slate-100/80 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all w-fit">
-                                <i className="bi bi-sliders"></i> Filters
-                            </button>
-                        </div>
-
                         {/* Cards Grid - 4 Columns */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                             {destinationsList.map((dest) => (
@@ -268,13 +217,6 @@ export default function Destinations({ auth }) {
                                     </div>
                                 </div>
                             ))}
-                        </div>
-
-                        {/* Show More Button */}
-                        <div className="flex justify-center mt-16">
-                            <button className="border border-slate-300 hover:bg-slate-100 text-slate-700 font-semibold px-8 py-3.5 rounded-full text-sm transition-all">
-                                Show more
-                            </button>
                         </div>
                     </div>
                 ) : (
@@ -357,9 +299,8 @@ export default function Destinations({ auth }) {
                                 Sahabat terbaik perjalanan Anda untuk menjelajahi surga wisata Aceh dengan aman, hemat, nyaman, dan berkesan.
                             </p>
                             <div className="flex gap-4">
-                                <a href="#" className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#00a896] hover:text-white transition-all"><i className="bi bi-facebook"></i></a>
-                                <a href="https://instagram.com/paseetrip" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#00a896] hover:text-white transition-all"><i className="bi bi-instagram"></i></a>
-                                <a href="#" className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#00a896] hover:text-white transition-all"><i className="bi bi-twitter-x"></i></a>
+                                <a href="https://www.instagram.com/paseetrip?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="bg-white/5 w-10 h-10 rounded-full flex items-center justify-center text-white text-base border border-white/10 hover:bg-[#028090] hover:border-[#028090] hover:-translate-y-0.5 transition-all duration-300" aria-label="Instagram"><i className="bi bi-instagram"></i></a>
+                                <a href="https://wa.me/6285967053617" target="_blank" rel="noopener noreferrer" className="bg-white/5 w-10 h-10 rounded-full flex items-center justify-center text-white text-base border border-white/10 hover:bg-[#25d366] hover:border-[#25d366] hover:-translate-y-0.5 transition-all duration-300" aria-label="WhatsApp"><i className="bi bi-whatsapp"></i></a>
                             </div>
                         </div>
 
@@ -408,45 +349,7 @@ export default function Destinations({ auth }) {
                 </div>
             </footer>
 
-            {/* Search Modal (Popup) */}
-            {isSearchOpen && (
-                <div className="fixed inset-0 bg-[#0b132b]/90 backdrop-blur-lg z-[2000] flex items-center justify-center p-6 animate-fade-in">
-                    <button
-                        onClick={() => setIsSearchOpen(false)}
-                        className="absolute top-8 right-8 text-white/70 hover:text-white text-3xl transition-colors focus:outline-none"
-                        aria-label="Close search"
-                    >
-                        <i className="bi bi-x-lg"></i>
-                    </button>
 
-                    <div className="max-w-4xl w-full p-4 animate-scale-up">
-                        <div className="text-center mb-6">
-                            <h3 className="text-2xl md:text-3xl font-extrabold text-white font-heading tracking-tight">
-                                Cari Destinasi Wisata Anda
-                            </h3>
-                        </div>
-
-                        <form onSubmit={handleSearchSubmit} className="flex items-center bg-white/5 border border-white/15 rounded-3xl p-3 w-full shadow-2xl backdrop-blur-md">
-                            <i className="bi bi-search text-2xl text-white/50 pl-4"></i>
-                            <input
-                                type="text"
-                                placeholder="Cari destinasi impian Anda (misal: Banda Aceh, Takengon, Sabang)..."
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                className="flex-1 bg-transparent text-white text-lg md:text-xl py-3 px-4 focus:outline-none placeholder-white/30 border-none focus:ring-0"
-                                autoFocus
-                                required
-                            />
-                            <button
-                                type="submit"
-                                className="bg-[#00a896] hover:bg-[#028090] text-white px-8 py-3.5 rounded-2xl font-bold font-heading transition-all duration-300 shadow-[0_4px_14px_rgba(0,168,150,0.3)]"
-                            >
-                                Cari
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }
