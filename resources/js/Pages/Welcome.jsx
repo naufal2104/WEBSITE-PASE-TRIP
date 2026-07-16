@@ -264,8 +264,8 @@ export default function Welcome({ auth }) {
                     <div className="bg-white rounded-b-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2.5 transition-all duration-400 border border-slate-100 group">
                         <div className="relative w-full overflow-hidden">
                             <img
-                                src="/image/destinasi/pembukaan.jpeg"
-                                alt="Kilometer Nol Sabang"
+                                src="/image/destinasi/sabang_vip.jpeg"
+                                alt="Trip VIP To Sabang"
                                 className="w-full h-auto object-contain transition-transform duration-500"
                             />
                             <div className="absolute top-5 right-5 bg-[#028090] text-white px-[14px] py-[6px] rounded-full text-xs font-semibold shadow-md">
@@ -276,15 +276,15 @@ export default function Welcome({ auth }) {
                             <div className="flex items-center gap-1.5 text-xs md:text-sm font-semibold text-[#e76f51] mb-2.5">
                                 <i className="bi bi-star-fill"></i> 4.9 (110+ Ulasan)
                             </div>
-                            <h3 className="text-xl font-bold text-[#1e293b] mb-2 font-heading">Kilometer 0, Sabang</h3>
+                            <h3 className="text-xl font-bold text-[#1e293b] mb-2 font-heading">Trip VIP To Sabang</h3>
                             <p className="text-[#64748b] text-sm mb-5 leading-relaxed">Mengunjungi tugu penanda ujung barat Indonesia, menikmati keindahan bawah laut Pulau Weh, dan petualangan tropis eksotis.</p>
                             <div className="flex items-center justify-between border-t border-slate-100 pt-4">
                                 <div className="text-xs text-[#64748b]">
                                     Mulai dari
-                                    <span className="block text-xl font-extrabold text-[#028090] mt-0.5">Rp 2.199.000</span>
+                                    <span className="block text-xl font-extrabold text-[#028090] mt-0.5">Rp 1.500.000</span>
                                 </div>
                                 <a
-                                    href={getWaLink('Kilometer 0, Sabang', 'Rp 2.199.000')}
+                                    href={getWaLink('Trip VIP To Sabang', 'Rp 1.500.000')}
                                     className="bg-slate-100 text-[#1e293b] w-11 h-11 rounded-full flex items-center justify-center text-lg transition-all duration-300 group-hover:bg-[#028090] group-hover:text-white group-hover:-rotate-45"
                                     target="_blank"
                                     rel="noopener noreferrer"

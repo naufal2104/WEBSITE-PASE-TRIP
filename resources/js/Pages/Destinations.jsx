@@ -26,13 +26,14 @@ export default function Destinations({ auth }) {
     const destinationsList = [
         {
             id: 'kilometer0',
-            title: 'Tugu Kilometer 0',
+            title: 'Trip VIP To Sabang',
             location: 'Sabang, Pulau Weh, Indonesia',
-            image: '/image/destinasi/kilometer0.jpeg',
+            image: '/image/destinasi/sabang_vip.jpeg',
             rating: '4.9',
-            price: 'Rp 2.199.000',
-            hasPackage: false,
-            waMessage: 'Halo saya mau bertanya soal destinasi Tugu Kilometer 0 dengan harga Rp 2.199.000'
+            price: 'Rp 1.500.000',
+            hasPackage: true,
+            promoImage: '/image/destinasi/sabang_vip.jpeg',
+            waMessage: 'Halo saya mau bertanya soal Trip VIP To Sabang dengan harga Rp 1.500.000'
         },
         {
             id: 'masjidraya',
