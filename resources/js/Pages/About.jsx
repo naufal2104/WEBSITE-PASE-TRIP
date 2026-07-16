@@ -213,11 +213,11 @@ export default function About({ auth }) {
                                 className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-200/60 group"
                             >
                                 {/* Founder Image or Placeholder */}
-                                <div className="aspect-[4/3] w-full bg-slate-100 flex items-center justify-center relative overflow-hidden border-b border-slate-100 group-hover:bg-slate-200 transition-colors duration-300">
+                                <div className="w-full bg-slate-100 flex items-center justify-center relative overflow-hidden border-b border-slate-100 group-hover:bg-slate-200 transition-colors duration-300">
                                     {founder.photo ? (
-                                        <img src={founder.photo} alt={founder.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                                        <img src={founder.photo} alt={founder.name} className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500" />
                                     ) : (
-                                        <div className="text-slate-300 text-6xl group-hover:scale-105 transition-transform duration-500 flex flex-col items-center gap-2">
+                                        <div className="aspect-[4/3] w-full text-slate-300 text-6xl group-hover:scale-105 transition-transform duration-500 flex flex-col items-center justify-center gap-2">
                                             <i className="bi bi-person-circle"></i>
                                             <span className="text-xs font-semibold text-slate-400 tracking-wider">PHOTO</span>
                                         </div>
