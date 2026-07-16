@@ -327,15 +327,15 @@ export default function Destinations({ auth }) {
                             <h3 className="text-white text-lg font-semibold mb-6 pb-2.5 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[30px] after:h-[2px] after:bg-[#00a896] font-heading font-bold">Hubungi Kami</h3>
                             <ul className="flex flex-col gap-4 text-sm text-white/70">
                                 <li className="flex items-start gap-3">
-                                    <i className="bi bi-geo-alt-fill text-[#00a896] text-base mt-0.5"></i>
-                                    <span>Jl. Samudera No. 45, Banda Aceh, Indonesia</span>
+                                    <i className="bi bi-geo-alt-fill text-[#00a896] text-base mt-0.5 flex-shrink-0"></i>
+                                    <span>Jl. Lintas Sumatera No 38 , Blang Naleung Mameh, Kec. Muara Satu, Kota Lhokseumawe, Aceh</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <i className="bi bi-envelope-fill text-[#00a896] text-base mt-0.5"></i>
-                                    <span>info@paseetrip.com</span>
+                                    <i className="bi bi-envelope-fill text-[#00a896] text-base mt-0.5 flex-shrink-0"></i>
+                                    <span>-</span>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <i className="bi bi-telephone-fill text-[#00a896] text-base mt-0.5"></i>
+                                    <i className="bi bi-telephone-fill text-[#00a896] text-base mt-0.5 flex-shrink-0"></i>
                                     <span>+62 859-6705-3617</span>
                                 </li>
                             </ul>
